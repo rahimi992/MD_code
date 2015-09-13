@@ -1,0 +1,17 @@
+structure          5CB.psf
+coordinates        5CB.pdb
+parameters         5CB.params 
+
+outputName         myoutput
+
+temperature    300
+
+firsttimestep      0
+
+cutoff           10.0
+switchdist        8.0
+pairlistdist     12.0
+
+box      10.0 11.1 12.2
+
+run 1000

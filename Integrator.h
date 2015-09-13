@@ -19,6 +19,7 @@ public:
     double *mass;
     
     Integrator(const Configure *conf, const Initial *init);
+    Integrator();
     Integrator(const Integrator& orig);
     virtual ~Integrator();
 private:

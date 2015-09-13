@@ -18,6 +18,7 @@
 #include "Parameters.h"
 #include "Initial.h"
 #include "Integrator.h"
+#include "Nonbonded.h"
 
 using namespace std;
 
@@ -40,11 +41,11 @@ int main(int argc, char** argv) {
     Molecule mol(&conf); // Read PSF and PDB files
     Parameters params(&conf); // Read Parameter files
     
-    Initial init(&conf,&mol,&params);
-//    mol.~Molecule(); //Free memory
+    Initial init(&conf,&mol,&params); // Prepare initial parameteres for run
+    // We don't need mol anymore and it would be optimized the code if we delete mol but I don't know how :(
+        
+    Integrator run(&conf,&init); // Main class for MD code
     
-    Integrator run(&conf,&init);
-
     // Simulation Time
     time_t t1 = time(0);
     cht = ctime(&t1);

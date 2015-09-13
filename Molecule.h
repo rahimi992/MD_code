@@ -33,6 +33,7 @@ typedef struct atom {
     float mass;
     float charge;
     float coor[3];
+
 } Atom;
 
 class Molecule {

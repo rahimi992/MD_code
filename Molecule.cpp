@@ -122,6 +122,7 @@ void Molecule::read_pdb(const char *filename){
     char   seg[8];
     char  *pch;
     size_t found;
+    Atom *patoms = atoms;
     ifstream infile;
     infile.open(filename);
     
@@ -131,11 +132,12 @@ void Molecule::read_pdb(const char *filename){
         if (found!=std::string::npos) {
             // Read atoms coordinates
             str.copy(seg,8,30);
-            atoms->coor[0] = stof(seg); // X
+            patoms->coor[0] = stof(seg); // X
             str.copy(seg,8,38);
-            atoms->coor[1] = stof(seg); // Y
+            patoms->coor[1] = stof(seg); // Y
             str.copy(seg,8,46);
-            atoms->coor[2] = stof(seg); // Z
+            patoms->coor[2] = stof(seg); // Z
+            patoms++;
         }
     }
 }
@@ -144,8 +146,5 @@ Molecule::Molecule(const Molecule& orig) {
 }
 
 Molecule::~Molecule() {
-    delete atoms;
-    delete bonds;
-    delete angles;
 }
 

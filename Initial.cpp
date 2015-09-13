@@ -40,6 +40,7 @@ Initial::Initial(const Configure *conf, const Molecule *mol, const Parameters *p
         mass[ii] = mol->atoms[ii].mass;
     }
     
+    // I need to add another subroutine to initialize the velocity from random generator or input file 
 }
 
 void Initial::build_bondlist(const Configure *conf, const Molecule *mol, const Parameters *params){
